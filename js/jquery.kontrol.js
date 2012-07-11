@@ -201,11 +201,10 @@ $(function () {
 
         this._draw = function (e) {
             if (
-                this.drawHook
-                && (this.drawHook() === false)
-            ) return;
-
-            this.draw();
+                !(this.drawHook
+                && (this.drawHook() === false))
+            )
+	            this.draw();
             this.drawReady = true;
         };
 
